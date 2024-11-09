@@ -1,6 +1,14 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      docker: 20
+    commands:
+      - echo Installing Docker...
+      - yum install -y docker
+      - service docker start
+      - docker --version
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
