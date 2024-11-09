@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-COPY .env .
+#COPY .env .
 
 RUN mvn package -DskipTests
 
@@ -12,7 +12,7 @@ FROM openjdk:22-bullseye
 
 WORKDIR /app
 
-COPY --from=build /app/.env .
+#COPY --from=build /app/.env .
 COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
